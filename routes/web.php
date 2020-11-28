@@ -20,3 +20,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('userdetails', 'UserDetailController')
+    ->middleware(['auth'])
+    ->except(['index', 'show']);
+
+Route::resource('education', 'EducationController')
+    ->middleware(['auth']);
+
+Route::get('userdetails','UserDetailController@index')->name('userdetails.index');
+Route::get('userdetails/{userdetail}','UserDetailController@show')->name('userdetails.show');
