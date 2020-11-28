@@ -6,19 +6,6 @@
 
         <h2>Izglītība</h2>
 
-        <div>
-            @if(session()->has('errors'))
-
-                @foreach($errors->all() as $e)
-
-                    <div class="alert alert-danger" role="alert">
-                        <p>{{ $e }}</p>
-                    </div>
-                @endforeach
-
-            @endif
-        </div>
-
         <form method="POST" action="/education">
             @csrf
 

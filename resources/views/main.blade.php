@@ -6,7 +6,7 @@
 
         <h2>CV būvētājs</h2>
 
-        <button class="btn btn-primary">Sākt</button>
+        <a class="btn btn-primary" href=" {{ route('userdetails.create') }}" role="button">Sākt</a>
 
     </div>
 

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h2>Informācija par izglītību</h2>
+    <h2>Izglītība</h2>
 
     @foreach($education as $e)
 
@@ -29,5 +29,6 @@
     @endforeach
 
     <a class="btn btn-primary mt-4" href=" {{route('education.create')}}" role="button">Pievienot vēl izglītību</a>
+    <a class="btn btn-primary mt-4" href=" {{route('experience.create')}}" role="button">Darba pieredze</a>
 
 @endsection
