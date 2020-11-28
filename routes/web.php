@@ -28,5 +28,9 @@ Route::resource('userdetails', 'UserDetailController')
 Route::resource('education', 'EducationController')
     ->middleware(['auth']);
 
+Route::resource('experience', 'ExperienceController')
+    ->middleware(['auth']);
+
+
 Route::get('userdetails','UserDetailController@index')->name('userdetails.index');
 Route::get('userdetails/{userdetail}','UserDetailController@show')->name('userdetails.show');
