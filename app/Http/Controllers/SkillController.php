@@ -11,12 +11,12 @@ class SkillController extends Controller
     {
         $skills = auth()->user()->skills;
 
-        return view('skills.index', compact('skills'));
+        return view('skill.index', compact('skills'));
     }
 
     public function create()
     {
-        return view('skills.create');
+        return view('skill.create');
     }
 
     public function store(Request $request)
@@ -26,9 +26,9 @@ class SkillController extends Controller
             'type' => 'required',
         ]);
 
-        auth()->user()->skills()->create($request->all());
+        auth()->user()->skill()->create($request->all());
 
-        return redirect()->route('skills.index');
+        return redirect()->route('skill.index');
     }
 
     /**
@@ -50,7 +50,7 @@ class SkillController extends Controller
      */
     public function edit(Skill $skill)
     {
-        return view('skills.edit', compact('skill'));
+        return view('skill.edit', compact('skill'));
     }
 
     public function update(Request $request, Skill $skill)
@@ -62,7 +62,7 @@ class SkillController extends Controller
 
         $skill->update($request->all());
 
-        return redirect()->route('skills.index');
+        return redirect()->route('skill.index');
     }
 
     public function destroy(Skill $skill)

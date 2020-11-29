@@ -9,7 +9,7 @@ class UserDataController extends Controller
 {
     public function index()
     {
-        $user = auth()->user()->details;
+        $user = auth()->user()->data;
 
         return view('userinfo.index', compact('user'));
     }
