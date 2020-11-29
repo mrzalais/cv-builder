@@ -10,19 +10,14 @@
             @csrf
             @method('PUT')
 
-            <input type="text" name="school_name" placeholder="Skola" value="{{ $education->school_name }}">
+            <x-input name="school_name" placeholder="Skola" value="{{ $education->school_name }}"></x-input>
+            <x-input name="school_location" placeholder="Atrašanās vieta" value="{{ $education->school_location }}"></x-input>
+            <x-input name="degree" placeholder="Izglītības pakāpe" value="{{ $education->degree }}"></x-input>
+            <x-input name="field_of_study" placeholder="Nozare" value="{{ $education->field_of_study }}"></x-input>
+            <x-input name="graduation_start_date" placeholder="Mācību sākums" type="date" value="{{ $education->graduation_start_date }}"></x-input>
+            <x-input name="graduation_end_date" placeholder="Mācību beigas" type="date" value="{{ $education->graduation_end_date }}"></x-input>
 
-            <input type="text" name="school_location" placeholder="Atrašanās vieta" value="{{ $education->school_location }}">
-
-            <input type="text" name="degree" placeholder="Izglītības pakāpe" value="{{ $education->degree }}">
-
-            <input type="text" name="field_of_study" placeholder="Nozare" value="{{ $education->field_of_study }}">
-
-            <input type="date" name="graduation_start_date" placeholder="Mācību sākums" value="{{ $education->graduation_start_date }}">
-
-            <input type="date" name="graduation_end_date" placeholder="Mācību beigas" value="{{ $education->graduation_end_date }}">
-
-            <input type="submit" value="Saglabāt izmaiņas">
+            <x-submit></x-submit>
 
         </form>
 

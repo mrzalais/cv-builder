@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserDetailsTable extends Migration
+class CreateSkillsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateUserDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_details', function (Blueprint $table) {
+        Schema::create('skills', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('name');
-            $table->string('surname');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('address')->nullable();
+            $table->string('description');
+            $table->string('type');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateUserDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cvs');
+        Schema::dropIfExists('skills');
     }
 }

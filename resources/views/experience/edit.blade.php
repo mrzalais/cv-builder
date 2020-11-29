@@ -10,17 +10,13 @@
             @csrf
             @method('PUT')
 
-            <input type="text" name="name" placeholder="Darba vieta" value="{{ $experience->name }}">
+            <x-input name="name" placeholder="Darba vieta" value="{{ $experience->name }}"></x-input>
+            <x-input name="job_title" placeholder="Atrašanās vieta" value="{{ $experience->job_title }}"></x-input>
+            <x-input name="type" placeholder="Veids" value="{{ $experience->type }}"></x-input>
+            <x-input name="start_date" type="date" placeholder="Sākums" value="{{ $experience->start_date }}"></x-input>
+            <x-input name="end_date" type="date" placeholder="Beigas" value="{{ $experience->end_date }}"></x-input>
 
-            <input type="text" name="job_title" placeholder="Atrašanās vieta" value="{{ $experience->job_title }}">
-
-            <input type="text" name="type" placeholder="Izglītības pakāpe" value="{{ $experience->type }}">
-
-            <input type="date" name="start_date" placeholder="Mācību sākums" value="{{ $experience->start_date }}">
-
-            <input type="date" name="end_date" placeholder="Mācību beigas" value="{{ $experience->end_date }}">
-
-            <input type="submit" value="Saglabāt izmaiņas">
+            <x-submit></x-submit>
 
         </form>
 

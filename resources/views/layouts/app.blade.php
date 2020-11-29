@@ -18,6 +18,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        .active{
+            font-weight: bolder;
+        }
+    </style>
 </head>
 <body>
 <div id="app">
@@ -79,6 +84,15 @@
     </nav>
 
     <main class="py-4 container">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item {{ request()->is('userinfo') ? 'active' : '' }}"><a href="{{ route('userinfo.index') }}">Pamatdati</a></li>
+                <li class="breadcrumb-item {{ request()->is('education') ? 'active' : '' }}"><a href="{{ route('education.index') }}">Izglītība</a></li>
+                <li class="breadcrumb-item {{ request()->is('experience') ? 'active' : '' }}"><a href="{{ route('experience.index') }}">Darba pieredze</a></li>
+                <li class="breadcrumb-item {{ request()->is('skill') ? 'active' : '' }}"><a href="{{ route('skill.index') }}">Prasmes</a></li>
+            </ol>
+        </nav>
 
         <div>
             @if(session()->has('errors'))

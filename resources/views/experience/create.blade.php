@@ -9,17 +9,13 @@
         <form method="POST" action="/experience">
             @csrf
 
-            <input type="text" name="name" placeholder="Nosaukums">
+            <x-input name="name" placeholder="Darba vieta"></x-input>
+            <x-input name="job_title" placeholder="Amats"></x-input>
+            <x-input name="type" placeholder="Pilna/nepilna slodze"></x-input>
+            <x-input name="start_date" type="date" placeholder="Sākums"></x-input>
+            <x-input name="end_date" type="date" placeholder="Beigas"></x-input>
 
-            <input type="text" name="job_title" placeholder="Amats">
-
-            <input type="text" name="type" placeholder="Pilna/nepilna slodze">
-
-            <input type="date" name="start_date" placeholder="Sākums">
-
-            <input type="date" name="end_date" placeholder="Beigas">
-
-            <input type="submit" value="Ievadīt darba pieredzi">
+            <x-submit></x-submit>
 
         </form>
 

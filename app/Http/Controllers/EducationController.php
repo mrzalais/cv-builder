@@ -35,12 +35,6 @@ class EducationController extends Controller
         return redirect()->route('education.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Education  $education
-     * @return \Illuminate\Http\Response
-     */
     public function show(Education $education)
     {
         //
