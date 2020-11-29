@@ -41,6 +41,30 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
 
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
+                        Priekšskats
+                    </button>
+
+                    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Priekšskats</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                </div>
+                                <div class="modal-body">
+                                    <iframe src="{{ route('cv.index') }}" width="100%" height="900"></iframe>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Aizvērt</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </ul>
 
                 <!-- Right Side Of Navbar -->

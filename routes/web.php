@@ -21,8 +21,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('userinfo', 'UserDataController')->middleware(['auth'])
-    ->except(['index', 'show']);
+Route::resource('userinfo', 'UserDataController')
+    ->middleware(['auth']);
 
 Route::resource('education', 'EducationController')
     ->middleware(['auth']);
@@ -33,7 +33,4 @@ Route::resource('experience', 'ExperienceController')
 Route::resource('skill', 'SkillController')
     ->middleware(['auth']);
 
-Route::resource('cv', 'CvController')->middleware('auth');
-
-Route::get('userinfo','UserDataController@index')->name('userinfo.index');
-Route::get('userinfo/{user}','UserDataController@show')->name('userinfo.show');
+Route::get('cv', 'CvController@index')->name('cv.index')->middleware('auth');
