@@ -47,8 +47,6 @@ class ExperienceController extends Controller
 
     public function edit(Experience $experience)
     {
-        dd($experience);
-
         return view('experience.edit', compact('experience'));
     }
 

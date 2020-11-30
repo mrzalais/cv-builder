@@ -1,11 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
     <h2>Izglītība</h2>
-
     @foreach($education as $e)
-
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">
@@ -14,9 +11,7 @@
                     ({{ $e->graduation_start_date }}  -
                     {{ $e->graduation_end_date}})
                 </h4>
-
                 <a class="btn btn-sm btn-primary" href=" {{ route('education.edit', $e) }}" role="button">Labot</a>
-
                 <form method="POST" action=" {{ route('education.destroy', $e) }}" style="display: inline">
                     @csrf
                     @method('DELETE')
@@ -25,11 +20,8 @@
                 </form>
             </div>
         </div>
-
     @endforeach
-
     <a class="btn btn-primary mt-4" href=" {{route('userinfo.index')}}" role="button">Iepriekšējā sadaļa</a>
     <a class="btn btn-primary mt-4" href=" {{route('education.create')}}" role="button">Pievienot vēl izglītību</a>
     <a class="btn btn-primary mt-4" href=" {{route('experience.index')}}" role="button">Nākamā sadaļa</a>
-
 @endsection

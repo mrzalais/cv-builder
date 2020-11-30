@@ -1,11 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="container">
-
         <h2>Ievadi informāciju par sevi</h2>
-
         <form method="POST" action="{{ route('userinfo.update', $user->id) }} ">
             @csrf
             @method('PUT')
@@ -18,9 +15,6 @@
             <x-textarea name="summary" placeholder="Kopsavilkums" value="{{ $user->summary }}"></x-textarea>
 
             <x-submit></x-submit>
-
         </form>
-
     </div>
-
 @endsection

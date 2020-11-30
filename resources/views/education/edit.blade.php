@@ -1,11 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="container">
-
         <h2>Labot izglītību</h2>
-
         <form method="POST" action="{{ route('education.update', $education) }}">
             @csrf
             @method('PUT')
@@ -18,9 +15,6 @@
             <x-input name="graduation_end_date" placeholder="Mācību beigas" type="date" value="{{ $education->graduation_end_date }}"></x-input>
 
             <x-submit></x-submit>
-
         </form>
-
     </div>
-
 @endsection

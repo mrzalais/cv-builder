@@ -1,11 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="container">
-
         <h2>Ievadi informāciju par sevi</h2>
-
         <form method="POST" action="/userinfo">
             @csrf
 
@@ -17,9 +14,6 @@
             <x-textarea name="summary" placeholder="Kopsavilkums"></x-textarea>
 
             <x-submit></x-submit>
-
         </form>
-
     </div>
-
 @endsection

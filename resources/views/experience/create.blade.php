@@ -1,11 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="container">
-
         <h2>Darba pieredze</h2>
-
         <form method="POST" action="/experience">
             @csrf
 
@@ -16,9 +13,6 @@
             <x-input name="end_date" type="date" placeholder="Beigas"></x-input>
 
             <x-submit></x-submit>
-
         </form>
-
     </div>
-
 @endsection

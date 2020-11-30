@@ -3,23 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Skill;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class SkillController extends Controller
 {
-    public function index()
+    public function index(): view
     {
         $skills = auth()->user()->skills;
 
         return view('skill.index', compact('skills'));
     }
 
-    public function create()
+    public function create(): view
     {
         return view('skill.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $request->validate([
             'description' => 'required',
@@ -31,29 +33,18 @@ class SkillController extends Controller
         return redirect()->route('skill.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Skill  $skill
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Skill $skill)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Skill  $skill
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Skill $skill)
+    public function edit(Skill $skill): view
     {
         return view('skill.edit', compact('skill'));
     }
 
-    public function update(Request $request, Skill $skill)
+    public function update(Request $request, Skill $skill): RedirectResponse
     {
         $request->validate([
             'description' => 'required',
@@ -65,7 +56,7 @@ class SkillController extends Controller
         return redirect()->route('skill.index');
     }
 
-    public function destroy(Skill $skill)
+    public function destroy(Skill $skill): RedirectResponse
     {
         $skill->delete();
         return back();

@@ -19,7 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-        .active{
+        .active {
             font-weight: bolder;
         }
     </style>
@@ -41,98 +41,106 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
 
-                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
+                    <button type="button" class="btn btn-lg" data-toggle="modal" data-target="#modelId">
                         Priekšskats
                     </button>
 
-                    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                    <div class="modal fade justify-content-center" id="modelId" tabindex="-1" role="dialog"
+                         aria-labelledby="modelTitleId" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title">Priekšskats</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
                                 <div class="modal-body">
-                                    <iframe src="{{ route('cv.index') }}" width="100%" height="900"></iframe>
+                                    <iframe src="{{ route('cv.show') }}" width="100%" height="900"></iframe>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Aizvērt</button>
-                                </div>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Aizvērt
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
-                    <!-- Authentication Links -->
-                    @guest
-                        @if (Route::has('login'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Ienākt') }}</a>
-                            </li>
-                        @endif
-
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Reģistrēties') }}</a>
-                            </li>
-                        @endif
-                    @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                    @endguest
+                    <button type="button" class="btn btn-lg" data-target="#modelId">
+                        <a class="nav-link" href="{{ route('cv.index') }}">{{ __('Visi CV') }}</a>
+                    </button>
                 </ul>
             </div>
+
+            <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Authentication Links -->
+                @guest
+                    @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Ienākt') }}</a>
+                        </li>
+                    @endif
+
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Reģistrēties') }}</a>
+                        </li>
+                    @endif
+                @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest
+            </ul>
         </div>
+</div>
+</nav>
+
+<main class="py-4 container">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item {{ request()->is('userinfo') ? 'active' : '' }}"><a
+                    href="{{ route('userinfo.index') }}">Pamatdati</a></li>
+            <li class="breadcrumb-item {{ request()->is('education') ? 'active' : '' }}"><a
+                    href="{{ route('education.index') }}">Izglītība</a></li>
+            <li class="breadcrumb-item {{ request()->is('experience') ? 'active' : '' }}"><a
+                    href="{{ route('experience.index') }}">Darba pieredze</a></li>
+            <li class="breadcrumb-item {{ request()->is('skill') ? 'active' : '' }}"><a
+                    href="{{ route('skill.index') }}">Prasmes</a></li>
+        </ol>
     </nav>
 
-    <main class="py-4 container">
+    <div>
+        @if(session()->has('errors'))
 
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item {{ request()->is('userinfo') ? 'active' : '' }}"><a href="{{ route('userinfo.index') }}">Pamatdati</a></li>
-                <li class="breadcrumb-item {{ request()->is('education') ? 'active' : '' }}"><a href="{{ route('education.index') }}">Izglītība</a></li>
-                <li class="breadcrumb-item {{ request()->is('experience') ? 'active' : '' }}"><a href="{{ route('experience.index') }}">Darba pieredze</a></li>
-                <li class="breadcrumb-item {{ request()->is('skill') ? 'active' : '' }}"><a href="{{ route('skill.index') }}">Prasmes</a></li>
-            </ol>
-        </nav>
+            @foreach($errors->all() as $e)
 
-        <div>
-            @if(session()->has('errors'))
+                <div class="alert alert-danger" role="alert">
+                    <p>{{ $e }}</p>
+                </div>
+            @endforeach
 
-                @foreach($errors->all() as $e)
+        @endif
+    </div>
 
-                    <div class="alert alert-danger" role="alert">
-                        <p>{{ $e }}</p>
-                    </div>
-                @endforeach
-
-            @endif
-        </div>
-
-        @yield('content')
-    </main>
+    @yield('content')
+</main>
 </div>
 </body>
 </html>

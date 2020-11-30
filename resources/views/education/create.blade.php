@@ -1,11 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="container">
-
         <h2>Izglītība</h2>
-
         <form method="POST" action="/education">
             @csrf
 
@@ -17,11 +14,6 @@
             <x-input name="graduation_end_date" placeholder="Mācību beigas" type="date"></x-input>
 
             <x-submit></x-submit>
-
         </form>
-
     </div>
-
-
-
 @endsection

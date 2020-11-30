@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\UserData;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class UserDataController extends Controller
 {
-    public function index()
+    public function index(): view
     {
         $user = auth()->user()->data;
 
@@ -15,12 +17,12 @@ class UserDataController extends Controller
     }
 
 
-    public function create()
+    public function create(): view
     {
         return view('userinfo.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $request->validate([
             'name' => 'required',
@@ -49,13 +51,13 @@ class UserDataController extends Controller
         //
     }
 
-    public function edit($id = null)
+    public function edit($id = null): view
     {
         $user = UserData::find($id);
         return view('userinfo.edit')->withUser($user);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $id): RedirectResponse
     {
         $user = UserData::find($id);
 
@@ -71,7 +73,7 @@ class UserDataController extends Controller
         return redirect()->route('userinfo.index');
     }
 
-    public function destroy($id)
+    public function destroy($id): RedirectResponse
     {
         $user = UserData::find($id);
 
