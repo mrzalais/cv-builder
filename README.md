@@ -5,7 +5,6 @@ To set up this project:
 In console:
 
 2. Composer install
-3. npm install & npm run dev
-4. configure .env
-5. php artisan migrate
-6. php artisan serve
+3. configure .env
+4. php artisan migrate
+5. php artisan serve
