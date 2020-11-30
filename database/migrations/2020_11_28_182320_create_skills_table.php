@@ -8,7 +8,7 @@ class CreateSkillsTable extends Migration
 {
     public function up(): void
     {
-        Schema::create('skill', function (Blueprint $table) {
+        Schema::create('skills', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('description');
